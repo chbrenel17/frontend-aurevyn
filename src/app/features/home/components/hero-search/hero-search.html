@@ -1,7 +1,34 @@
-<div class="w-full h-[60vh] bg-cover bg-center relative"
+<div class="w-full h-[48vh] md:h-[50vh] bg-cover bg-center relative"
   style="background-image: url('/images/hero/hero.png')">
-  <div class="absolute inset-0 bg-black opacity-50"></div>
-  <div class="relative flex flex-items-center justify-center h-full">
-      <p class="text-white text-4xl font-bold">Test</p>
+
+  <div class="absolute inset-0 bg-linear-to-b from-black/40 to-transparent"></div>
+
+  <div class="relative z-20 h-full flex flex-col items-center justify-center pt-16 text-white text-center px-4">
+
+      <h2 class="text-4xl font-bold mb-2 drop-shadow-lg"> Find Your Dream Home</h2>
+
+      <p class="mb-6">Search homes for sale, rent or investment</p>
+
+      <div class="flex items-center bg-white/80 backdrop-blur-md rounded-xl overflow-hidden shadow-lg justify-between mt-2 mb-4 mx-6 focus:ring-2 focus:ring-orange-300">
+
+          <input type="text" placeholder="Location" class="flex-1 h-12 px-4 rounded-lg text-black outline-none"/>
+
+          <div class="w-px h-8 bg-gray-300"></div>
+
+          <select class="w-32 h-12 px-4 text-black outline-none bg-transparent">
+            <option disabled selected>Price</option>
+          </select>
+
+          <div class="w-px h-8 bg-gray-300"></div>
+
+          <select class="w-28 h-12 px-4 text-black outline-none bg-transparent">
+            <option disabled selected>Beds</option>
+          </select>
+
+          <div>
+            <button class="h-12 px-6 bg-amber-500 text-white font-medium hover:bg-gray-800 transition rounded-r-xl hover:text-gray-950 cursor-pointer whitespace-nowrap">Search</button>
+          </div>
+
+      </div>
   </div>
 </div>

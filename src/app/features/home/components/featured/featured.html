@@ -1,1 +1,47 @@
-<p>featured works!</p>
+<section class="bg-gray-50 py-16 px-6 -mt-18 relative z-10 border-t border-gray-200">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center justify-center gap-4 mb-6">
+      <div class="h-px bg-gray-300 w-24"></div>
+
+             <h2 class="text-3xl font-semibold">
+                <span class="text-orange-500">Featured</span>
+                Properties
+      </h2>
+      <div class="h-px bg-gray-400 w-24"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 justify-items-center">
+      @for (property of properties; track property.id) {
+        <article
+          class="w-74 bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        >
+          <div>
+            <img
+              [src]="property.imageUrl"
+              [alt]="property.title"
+              class="w-full h-32 object-cover transition duration-300 hover:scale-110"
+            />
+
+            <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition">
+            </div>
+
+          </div>
+
+          <div class="p-4">
+            <p class="text-xl font-bold text-gray-900">${{ property.price }}</p>
+            <h3 class="text-md font-semibold mt-0">{{ property.title }}</h3>
+            <p class="text-sm text-gray-600 mt-0">
+              {{ property.description }}
+            </p>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="text-center mt-3">
+      <a class="text-lg font-medium hover:underline cursor-pointer">
+        View All Listings >
+      </a>
+    </div>
+  </div>
+</section>

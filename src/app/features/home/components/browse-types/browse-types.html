@@ -1,1 +1,13 @@
-<p>browse-types works!</p>
+<section class="bg-gray-50 pb-8 max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl text-center text-gray-900 pt-2 font-bold mb-10">Browse by Type</h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            @for (Property of propertyTypes; track Property.id) {
+                <div class="bg-white py-8 px-6 h-28 border border-gray-200 shadow-sm rounded-xl flex flex-col items-center justify-center  transition-all duration-300
+                    hover:shadow-lg hover:translate-y-1 hover:scale-105 cursor-pointer">
+                    <img [src]="Property.url" [alt]="Property.label" class="w-20 h-20 object-contain mx-auto" />
+                </div>
+            }
+        </div>
+
+</section>

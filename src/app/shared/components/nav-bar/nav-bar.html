@@ -11,11 +11,45 @@
         <a class="hover:text-orange-300 transition" href="#">Rent</a>
     </div>
 
-    <div class="cursor-pointer hover:text-orange-300 transition ">Favorites</div>
+    <div class="cursor-pointer hover:text-orange-300 transition ">♡</div>
 
     <div>
-        <button class="border px-4 py-1 rounded cursor-pointer hover:bg-black hover:text-orange-300 transition">Login</button>
+        <button type="button" class="border px-4 py-1 rounded cursor-pointer hover:bg-black hover:text-orange-300 transition" 
+        (click)="openLoginModal()">Login</button>
     </div>
+
+    @if (showLoginModal) {
+        <div class="fixed inset-0 z-1000 flex items-center justify-center bg-black/60" (click)="closeLoginModal()">
+
+            <div class="relative w-full max-w-md rounded-xl bg-white p-6 pt-8 text-black shadow-xl" 
+            (click)="$event.stopPropagation()">
+
+                <button type="button" class="absolute right-4 top-4 text-2xl w-10 h-10 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-700 transition" (click)="closeLoginModal()">
+                    x
+                </button>
+
+                <div class="grid grid-cols-1 md:grid-cols-2">
+
+                    <section class="md:pr-8 md:border-r border-gray-200/30">
+                        <div class="w-full max-w-sm">
+                            <h2 class="mb-4 text-2xl font-bold text-black">Login</h2>
+                            <app-login></app-login>
+                        </div>
+                    </section>
+
+                    <section class="md:pl-8">
+                        <div>
+                            <h2 class="mb-4 text-2xl font-bold text-black">Register</h2>
+                            <app-register></app-register>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
 
 </nav>
 

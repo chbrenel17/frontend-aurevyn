@@ -1,4 +1,4 @@
-import { AuthService } from './../../../shared/services/auth';
+import { AuthService } from '../../../core/services/auth.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,27 +17,32 @@ export class RegisterComponent {
               private router: Router
   ) {}
 
-  form!: FormGroup;
+  registerForm!: FormGroup;
    ngOnInit() {
-     this.form = this.formBuilder.group({
+     this.registerForm = this.formBuilder.group({
        email: ['', [Validators.required, Validators.email]],
        password: ['', [Validators.required, Validators.minLength(8)]],
      });
    }
 
   onSubmit() {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
       return;   
     }
-    this.authService.register(this.form.value).subscribe({
+    
+    this.authService.register(this.registerForm.value).subscribe({
       next: (response) => {
         if (response.success) {       
           this.router.navigate(['/login']);
         } else {
-          this.form.setErrors({ serverError: response.message || 'Registration failed. Please try again.' });  
+          this.registerForm.setErrors({ serverError: response.message || 'Registration failed. Please try again.' });  
         }
-      }
+      },
+      error: (error) => {
+        const message = error.error?.message || 'An error occurred during registration. Please try again.';
+        this.registerForm.setErrors({ serverError: message });
+      } 
     });
   }
 }

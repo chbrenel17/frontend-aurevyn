@@ -31,8 +31,9 @@ export class LoginComponent {
     }
     this.authService.login(this.loginForm.value).subscribe({
       next: (response) => {
-        if (response.success) {       
-          this.router.navigate(['/']);
+        if (response.token) {  
+          this.authService.saveToken(response.token);     
+          alert('Login successful!');
       }
     },
       error: (error) => {

@@ -33,10 +33,10 @@ export class RegisterComponent {
     
     this.authService.register(this.registerForm.value).subscribe({
       next: (response) => {
+        console.log('Registration response:', response);
+        console.log('success:', response.success);  
         if (response.success) {       
           this.router.navigate(['/login']);
-        } else {
-          this.registerForm.setErrors({ serverError: response.message || 'Registration failed. Please try again.' });  
         }
       },
       error: (error) => {

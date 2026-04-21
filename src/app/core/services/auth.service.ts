@@ -12,7 +12,7 @@ export interface AuthData {
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080'; 
+  private apiUrl = 'http://localhost:8440/auth'; 
 
   constructor(private http: HttpClient) {}
 
